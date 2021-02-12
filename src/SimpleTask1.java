@@ -1,46 +1,23 @@
 public class SimpleTask1 {
 
-    public static void main(String args[]) {
-        String str = "";
+    public static void main( final String args[]) {
+        String str = "Hello world";
         System.out.println(invStr(str));
     }
 
-    public static String invStr(String str) {
-        int length = str.length();
-        int index = length - 3;
-        String firstSubstr = "";
-        String secondSubstr = "";
-        String thirdSubstr = "";
-        String fourthSubstr = "";
-
-
+    public static  String invStr(String str) {
+        final int length = str.length(); // Длина строки
+        final String firstResult; // Результат при условии длины строки больше 5
+        final String firstChar;
+        final String secondResult; // Результат при условии длины строки меньше или равно 5
         if (length > 5) {
-            for (int i = 0; i < 3; i++) {
-                char currentChar = str.charAt(i);
-                firstSubstr += currentChar;
-            }
-            for (int j = index ; j < length; j++){
-                char currentChar = str.charAt(j);
-                secondSubstr += currentChar;
-            }
-            return firstSubstr + secondSubstr;
+            firstResult = str.substring(0, 3) + str.substring(length - 3, length);
+            return firstResult;
         }
+            firstChar = str.substring(0,1);
+            secondResult = firstChar.repeat(length);
 
 
-        else if (length > 1 && length <= 5) {
-            for (int i = 0; i < length; i++) {
-                char currentChar = str.charAt(i);
-                thirdSubstr += currentChar;
-
-            }
-            for (int j = 0; j < length ; j++) {
-                fourthSubstr += thirdSubstr;
-            }
-            return fourthSubstr;
-        }
-
-        else {
-            return "Invalid value";
-        }
+        return secondResult;
     }
 }
