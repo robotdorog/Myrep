@@ -13,9 +13,8 @@ public class SimpleTask1 {
 
         } else if (length > 1) {
             return str.substring(0, 1).repeat(length);
-        }
-      else {
-          throw new IllegalArgumentException("String can't be empty");
+        } else {
+            throw new IllegalArgumentException("String can't be empty");
         }
     }
 }
