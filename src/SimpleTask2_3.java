@@ -17,13 +17,9 @@ public class SimpleTask2_3 {
             num /= 10;
         }
 
-        String str = "";
-        int i = 0;
-        while (i < inst.size()) {
+        StringBuilder str = new StringBuilder();
 
-            str += inst.get(i);
-            i++;
-        }
-        return Integer.parseInt(str);
+        for (int i : inst) str.append(i);
+        return Integer.parseInt(str.toString());
     }
 }

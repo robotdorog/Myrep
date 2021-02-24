@@ -2,53 +2,78 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+class Result {
+    private final int even;
+    private final int uneven;
+    public Result(int even, int uneven) {
+        this.even = even;
+        this.uneven = uneven;
+    }
+
+    public int getEven() {
+        return even;
+    }
+
+    public int getUneven() {
+        return uneven;
+    }
+}
+
 public class SimpleTask2_2 {
     public static void main(String[] args) {
-
-        System.out.println("Количество нечетных цифр в числе: " + first(count(12345)));
-        System.out.println("Количество четных цифр в числе: " + second(count(12345)));
+        int number = 1234567;
+        Result result = makeResult(number);
+        System.out.println("Четные: " + result.getEven());
+        System.out.println("Нечентные: " + result.getUneven());
 
     }
 
-    public static List<Integer> count(int num) { // Переносим цифры из числа в массив
+
+    public static Result makeResult(int number) {
+        List<Integer> list = convertIntToList(number);
+        return countEvenUneven(list);
+    }
+
+    public static List<Integer> convertIntToList(int num) {
         List<Integer> ints = new ArrayList<>();
 
         while (num != 0) {
             int n = num % 10;
             ints.add(n);
             num /= 10;
-        }
-        Collections.reverse(ints);
 
+        }
         return ints;
     }
 
-    public static int first(List<Integer> ints) { //Считаем количество нечетных цифр в числе
-
-        int i = 0;
-        int odd = 0;
-
-        while (i != ints.size()) {
-            if (ints.get(i) % 2 != 0) {
-                odd++;
-            }
-            i++;
-        }
-        return odd;
-    }
-
-    public static int second(List<Integer> ints) { //Считаем количество нечетных цифр в числе
-
-        int i = 0;
+    public static Result countEvenUneven(List<Integer> ints) {
         int even = 0;
+        int uneven = 0;
 
-        while (i != ints.size()) {
-            if (ints.get(i) % 2 == 0) {
+        for (int i: ints) {
+            if (i % 2 == 0) {
                 even++;
             }
-            i++;
+            else {
+                uneven++;
+            }
+
+
         }
-        return even;
+        return new Result(even, uneven);
+
+
     }
+
 }
+
+
+
+
+
+
+
+
+
+
 

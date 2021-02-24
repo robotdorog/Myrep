@@ -19,8 +19,8 @@ public class SimpleTask2_1 {
         Collections.reverse(ints); // Разворачиваем массив т.к. цифры добавлялись с конца
 
         int sum = 0;
-        for (int i = 0; i < ints.size(); i++) {
-            if (ints.get(i) % 2 == 0) {    // Ищем каждый четный участник массива
+        for (int i : ints) {
+            if (i % 2 == 0) {    // Ищем каждый четный участник массива
                 sum += ints.get(i); // суммируем четные цифры согласно задания
             }
 
