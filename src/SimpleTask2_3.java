@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class SimpleTask2_3 {
@@ -16,10 +15,17 @@ public class SimpleTask2_3 {
             inst.add(n);
             num /= 10;
         }
+        int result = 0;
 
-        StringBuilder str = new StringBuilder();
+        for (int i : inst){
 
-        for (int i : inst) str.append(i);
-        return Integer.parseInt(str.toString());
+        result *= 10;
+        result = result + i;
+
+
+
+        }
+
+    return result;
     }
 }
