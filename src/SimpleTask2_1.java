@@ -16,7 +16,7 @@ public class SimpleTask2_1 {
             num /= 10; // переходим к следующей цифре в числе
 
         }
-        Collections.reverse(ints); // Разворачиваем массив т.к. цифры добавлялись с конца
+
 
         int sum = 0;
         for (int i : ints) {

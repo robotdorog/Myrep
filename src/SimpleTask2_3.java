@@ -17,15 +17,12 @@ public class SimpleTask2_3 {
         }
         int result = 0;
 
-        for (int i : inst){
-
-        result *= 10;
-        result = result + i;
-
-
+        for (int i : inst) {
+            result *= 10;
+            result = result + i;
 
         }
 
-    return result;
+        return result;
     }
 }
