@@ -18,3 +18,6 @@ public class SimpleTask3_2 {
         return list;
     }
 }
+
+
+

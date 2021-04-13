@@ -39,5 +39,6 @@ public class SimpleTask3 {
         }
 
         return list;
+
     }
 }
