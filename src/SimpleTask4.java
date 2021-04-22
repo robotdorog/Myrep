@@ -22,7 +22,7 @@ public class SimpleTask4 {
         System.out.println("Вам необходимо угадать число. Количество попыток: " + guessNumb);
         System.out.println("Введите число");
         int guessCount;
-        for (guessCount = 0; guessCount != guessNumb; guessCount++) {
+        for (guessCount = 0; guessCount < guessNumb; guessCount++) {
             int input = readLn();
             if (input > item) {
                 System.out.println("Вы не угадали! Загаданное число меньше");
