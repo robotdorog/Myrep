@@ -6,14 +6,15 @@ public class Mediana {
 
 
         ArrayList<Integer> difference = new ArrayList<>();
-        for (int i = 0; i < startList.size() - 1; i++) {
+        for (int i = 0; i < startList.size(); i++) {
 
-            for (int j = i; j < startList.size() - 1; j++) {
-                int differenceResult = startList.get(j + 1) - startList.get(i);
-                System.out.println("Первый элемент: " + startList.get(j + 1) + " Второй элемент: " + startList.get(i));
+            for (int j = 0; j < startList.size(); j++) {
+                int differenceResult = Math.abs(startList.get(j) - startList.get(i));
+                System.out.println("Первый элемент: " + startList.get(j) + " Второй элемент: " + startList.get(i));
                 System.out.println("Результат вычитания: " + differenceResult);
-                difference.add(differenceResult);
-
+                if (differenceResult > 0) {
+                    difference.add(differenceResult);
+                }
             }
 
         }
