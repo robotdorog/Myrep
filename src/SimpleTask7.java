@@ -4,16 +4,19 @@ public class SimpleTask7 {
 
     public static void main(String[] args) {
 
-        ArrayList<Integer> myList = new ArrayList<>();
-        myList.add(1);
-        myList.add(7);
-        myList.add(5);
-        myList.add(9);
-        myList.add(10);
-        myList.add(7);
+        ArrayList<Integer> myList1 = new ArrayList<>();
+        myList1.add(2);
+        myList1.add(5);
+        myList1.add(3);
+
+        ArrayList<Integer> myList2 = new ArrayList<>();
+        myList2.add(2);
+        myList2.add(2);
+        myList2.add(1);
 
 
         Mediana item = new Mediana();
-        System.out.println("Медиана равна: " + item.findMediana(myList));
+        System.out.println("Медиана равна: " + item.findMediana(myList1));
+        System.out.println("Медиана равна: " + item.findMediana(myList2));
     }
 }
