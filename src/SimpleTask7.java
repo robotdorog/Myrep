@@ -18,5 +18,9 @@ public class SimpleTask7 {
         Mediana item = new Mediana();
         System.out.println("Медиана равна: " + item.findMediana(myList1));
         System.out.println("Медиана равна: " + item.findMediana(myList2));
+
+
+        System.out.println("Новая медиана равна: " + item.findMedianaNew(2, 5, 3));
+        System.out.println("Новая медиана равна: " + item.findMedianaNew(2, 2, 1));
     }
 }
