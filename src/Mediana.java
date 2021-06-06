@@ -50,9 +50,9 @@ public class Mediana {
         int resultB = Math.abs((a - b) + (c - b));
         int resultC = Math.abs((a - c) + (b - c));
 
-        if ( resultA < resultB && resultA < resultC)
+        if ( resultA <= resultB && resultA <= resultC)
             return a;
-        else if (resultB < resultA && resultB < resultC)
+        else if (resultB <= resultA && resultB <= resultC)
             return b;
         else
             return c;
