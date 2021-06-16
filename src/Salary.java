@@ -42,9 +42,11 @@ public class Salary {
 
 
 
-    public int findMin() {  //Метод поиска минимальной зарплаты
+    public String findMin() {  //Метод поиска минимальной зарплаты
 
-        ArrayList <Integer> arrInt = hashValues(fillSalaryMap);
+        ArrayList<Integer> arrInt = hashValues(fillSalaryMap);
+        ArrayList<String> arrStr = hashKeys(fillSalaryMap);
+        String resultSmallest = "";
         int smallest = arrInt.get(0);
         int smallest_index = 0;
 
@@ -55,11 +57,15 @@ public class Salary {
             }
 
         }
-    return smallest;}
+        resultSmallest = "Самая маленькая ЗП: " + arrStr.get(smallest_index) + " " + arrInt.get(smallest_index);
+        return resultSmallest;}
 
-    public int findMax() { //Поиск максимальной зарплаты
+
+    public String findMax() { //Поиск максимальной зарплаты
 
         ArrayList<Integer> arrInt = hashValues(fillSalaryMap);
+        ArrayList<String> arrStr = hashKeys(fillSalaryMap);
+        String resultBiggest = "";
         int biggest = arrInt.get(0);
         int biggest_index = 0;
 
@@ -70,7 +76,8 @@ public class Salary {
             }
 
         }
-        return biggest;}
+        resultBiggest = "Самая большая ЗП: " + arrStr.get(biggest_index) + " " + arrInt.get(biggest_index);
+        return resultBiggest;}
 
 
 }
