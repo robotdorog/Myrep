@@ -1,17 +1,17 @@
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Random;
+import java.util.*;
 
 public class Salary {
 
     HashMap<String,  Integer> salaryMap = new HashMap<>();
+    HashMap<String, Integer> fillSalaryMap = fillIn(salaryMap);
 
-    private int generateSalary() {
+    private int generateSalary() {   //Метод для генерации зарплаты
         Random random = new Random();
         return (random.nextInt(100 - 25) + 25) * 1000;
     }
-    public HashMap<String, Integer> fillIn() {
+
+
+    private HashMap<String, Integer> fillIn(HashMap<String, Integer> hashMap) {  // Метод для заполнения мапы
         salaryMap.put("Иван Петров", generateSalary());
         salaryMap.put("Петр Иванов", generateSalary());
         salaryMap.put("Василий Иванов", generateSalary());
@@ -27,60 +27,50 @@ public class Salary {
 
 
 
-    private int findMin() {
+    private ArrayList<Integer> hashValues  (HashMap<String, Integer> hashArr) {
+        hashArr = fillSalaryMap;
 
-        ArrayList<Integer> values = new ArrayList<>(salaryMap.values());
-        int smallest = values.get(0);
+        return new ArrayList<>(hashArr.values());
+    }
+
+
+    private ArrayList<String> hashKeys (HashMap<String, Integer> hashArr) {
+        hashArr = fillSalaryMap;
+
+        return (ArrayList<String>) new ArrayList(hashArr.keySet());
+    }
+
+
+
+    public int findMin() {  //Метод поиска минимальной зарплаты
+
+        ArrayList <Integer> arrInt = hashValues(fillSalaryMap);
+        int smallest = arrInt.get(0);
         int smallest_index = 0;
 
-        for (int i = 1; i < values.size(); i++) {
-            if (values.get(i) < smallest) {
-                smallest = values.get(i);
+        for (int i = 1; i < arrInt.size(); i++) {
+            if (arrInt.get(i) < smallest) {
+                smallest = arrInt.get(i);
                 smallest_index = i;
             }
 
         }
     return smallest;}
 
-    private int findMax() {
+    public int findMax() { //Поиск максимальной зарплаты
 
-        ArrayList<Integer> values = new ArrayList<>(salaryMap.values());
-        int biggest = values.get(0);
+        ArrayList<Integer> arrInt = hashValues(fillSalaryMap);
+        int biggest = arrInt.get(0);
         int biggest_index = 0;
 
-        for (int i = 1; i < values.size(); i++) {
-            if (values.get(i) < biggest) {
-                biggest = values.get(i);
+        for (int i = 1; i < arrInt.size(); i++) {
+            if (arrInt.get(i) > biggest) {
+                biggest = arrInt.get(i);
                 biggest_index = i;
             }
 
         }
         return biggest;}
-
-    public HashMap<Object, Object> checkMinMax (){
-        fillIn();
-        boolean test = false;
-        HashMap<Object, Object> hmMinMax = new HashMap<>();
-
-        for (Map.Entry entry : salaryMap.entrySet()) {
-
-            test = salaryMap.containsValue(findMin());
-            System.out.println("Значение тест: " + test);
-            if (test) {
-             hmMinMax.put(entry.getKey(), entry.getValue());
-            }
-//            test = false;
-//
-//            test =salaryMap.containsValue(findMax());
-//            if (test == true) {
-//              hmMinMax.put(entry.getKey(), entry.getValue());
-//            }
-
-        }
-    return hmMinMax;
-
-    }
-
 
 
 }
