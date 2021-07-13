@@ -29,14 +29,14 @@ public class Salary {
     }
 
 
-    private ArrayList<Integer> hashValues() {
+    private ArrayList<Integer> hashValues() { //Метод получения значений
         HashMap<String, Integer> hashArr = fillSalaryMap;
 
         return new ArrayList<>(hashArr.values());
     }
 
 
-    private ArrayList<String> hashKeys() {
+    private ArrayList<String> hashKeys() { //Метод получения ключей
         HashMap<String, Integer> hashArr = fillSalaryMap;
 
         return (ArrayList<String>) new ArrayList(hashArr.keySet());
@@ -79,7 +79,7 @@ public class Salary {
     }
 
 
-    private int averageValue() {  //Сделать private
+    private int averageValue() {  // Поиск средней ЗП
         int averageSalary = 0;
         for (int i : arrInt) {
             averageSalary = averageSalary + i;
@@ -88,7 +88,7 @@ public class Salary {
         return averageSalary;
     }
 
-    public ArrayList<String> moreThanAverage() {
+    public ArrayList<String> moreThanAverage() { // Список ЗП > средней
         ArrayList<String> listMoreThanAverage = new ArrayList<>();
         for (int i = 0; i < arrInt.size(); i++) {
             if (arrInt.get(i) > averageValue()) {
@@ -100,7 +100,7 @@ public class Salary {
         return listMoreThanAverage;
     }
 
-    public ArrayList<Integer> taxSalary() {
+    private ArrayList<Integer> taxSalary() { // Налог по каждой ЗП
         ArrayList<Integer> listTaxSalary = new ArrayList<>();
         for (int i : arrInt) {
             int taxSalary;
@@ -111,7 +111,7 @@ public class Salary {
         return listTaxSalary;
     }
 
-    public ArrayList<Integer> salaryAfterTax() {
+    private ArrayList<Integer> salaryAfterTax() { // ЗП на руки. После вычета налога
         ArrayList<Integer> listSalaryAfterTax = new ArrayList<>();
         for (int i = 0; i < arrInt.size(); i++) {
             int salaryAfterTax;
@@ -122,7 +122,7 @@ public class Salary {
     }
 
 
-    public void taxResult() {
+    public void taxResult() { // Вывод по заданию 3
         String strTaxResult;
         for (int i = 0; i < arrInt.size(); i++) {
             strTaxResult = ("ФИО: " + arrStr.get(i) + " На руки: " + salaryAfterTax().get(i) + " Налог: " + taxSalary().get(i));
