@@ -40,7 +40,6 @@ public class SalaryNew {
 
         int min = Integer.MAX_VALUE;
         String maxSalaryEmployee = "";
-        String result;
         for (int i : salaryMap.values()) {
             if (i < min) {
                 min = i;
@@ -52,7 +51,7 @@ public class SalaryNew {
                 maxSalaryEmployee = s;
             }
         }
-        return result = "Минимальная ЗП у сотрудника: " + maxSalaryEmployee + " равна: " + min;
+        return "Минимальная ЗП у сотрудника: " + maxSalaryEmployee + " равна: " + min;
 
     }
 
@@ -65,7 +64,6 @@ public class SalaryNew {
 
         int max = Integer.MIN_VALUE;
         String maxSalaryEmployee = "";
-        String result;
         for (int i : salaryMap.values()) {
             if (i > max) {
                 max = i;
@@ -76,7 +74,7 @@ public class SalaryNew {
                 maxSalaryEmployee = s;
             }
         }
-        return result = "Максимальная ЗП у сотрудника: " + maxSalaryEmployee + " равна: " + max;
+        return "Максимальная ЗП у сотрудника: " + maxSalaryEmployee + " равна: " + max;
     }
 
     /**
@@ -86,13 +84,12 @@ public class SalaryNew {
      */
     public String averageSalary() {
 
-        String result;
         int amount = 0;
         for (int i : salaryMap.values()) {
             amount += i;
         }
         int average = amount / salaryMap.size();
-        return result = "Средняя ЗП среди сотрудников: " + average;
+        return "Средняя ЗП среди сотрудников: " + average;
     }
 
     /**
