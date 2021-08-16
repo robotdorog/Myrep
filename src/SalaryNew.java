@@ -1,13 +1,13 @@
 import java.util.*;
 
 public class SalaryNew {
-    HashMap<String, Integer> salaryMap = new HashMap();
+    HashMap<String, Integer> salaryMap;
 
     /**
      * Конструктор. Заполнение HashMap
      */
     public SalaryNew() {
-
+        salaryMap = new HashMap();
         salaryMap.put("Иван Петров", generateSalary());
         salaryMap.put("Петр Иванов", generateSalary());
         salaryMap.put("Василий Иванов", generateSalary());
@@ -40,19 +40,15 @@ public class SalaryNew {
 
         int min = Integer.MAX_VALUE;
         String maxSalaryEmployee = "";
-        for (int i : salaryMap.values()) {
-            if (i < min) {
-                min = i;
+
+        for (String name : salaryMap.keySet()) {
+            if (salaryMap.get(name) < min) {
+                min = salaryMap.get(name);
+                maxSalaryEmployee = name;
             }
         }
 
-        for (String s : salaryMap.keySet()) {
-            if (salaryMap.get(s) == min) {
-                maxSalaryEmployee = s;
-            }
-        }
         return "Минимальная ЗП у сотрудника: " + maxSalaryEmployee + " равна: " + min;
-
     }
 
     /**
@@ -60,20 +56,19 @@ public class SalaryNew {
      *
      * @return
      */
+
     public String salaryMaxValue() {
 
         int max = Integer.MIN_VALUE;
         String maxSalaryEmployee = "";
-        for (int i : salaryMap.values()) {
-            if (i > max) {
-                max = i;
+
+        for (String name : salaryMap.keySet()) {
+            if (salaryMap.get(name) > max) {
+                max = salaryMap.get(name);
+                maxSalaryEmployee = name;
             }
         }
-        for (String s : salaryMap.keySet()) {
-            if (salaryMap.get(s) == max) {
-                maxSalaryEmployee = s;
-            }
-        }
+
         return "Максимальная ЗП у сотрудника: " + maxSalaryEmployee + " равна: " + max;
     }
 
@@ -85,8 +80,8 @@ public class SalaryNew {
     public String averageSalary() {
 
         int amount = 0;
-        for (int i : salaryMap.values()) {
-            amount += i;
+        for (int salary : salaryMap.values()) {
+            amount += salary;
         }
         int average = amount / salaryMap.size();
         return "Средняя ЗП среди сотрудников: " + average;
@@ -99,15 +94,14 @@ public class SalaryNew {
      */
     public ArrayList<String> taxSlary() {
         ArrayList<String> result = new ArrayList<>();
-        for (String s : salaryMap.keySet()) {
+        for (String name : salaryMap.keySet()) {
             int taxSalary;
             int afterTax;
-            taxSalary = (salaryMap.get(s) * 13) / 100;
-            afterTax = salaryMap.get(s) - taxSalary;
-            result.add("Сотрудник: " + s + "." + " ЗП после вычета налога: " + afterTax);
+            taxSalary = (salaryMap.get(name) / 100) * 13;
+            afterTax = salaryMap.get(name) - taxSalary;
+            result.add("Сотрудник: " + name + "." + " ЗП после вычета налога: " + afterTax);
 
         }
         return result;
     }
-
 }
