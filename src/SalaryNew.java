@@ -39,16 +39,16 @@ public class SalaryNew {
     public String salaryMinValue() {
 
         int min = Integer.MAX_VALUE;
-        String maxSalaryEmployee = "";
+        String minSalaryEmployee = "";
 
         for (String name : salaryMap.keySet()) {
             if (salaryMap.get(name) < min) {
                 min = salaryMap.get(name);
-                maxSalaryEmployee = name;
+                minSalaryEmployee = name;
             }
         }
 
-        return "Минимальная ЗП у сотрудника: " + maxSalaryEmployee + " равна: " + min;
+        return "Минимальная ЗП у сотрудника: " + minSalaryEmployee + " равна: " + min;
     }
 
     /**
